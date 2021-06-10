@@ -216,3 +216,25 @@ header.chat-header {
 	border-bottom-left-radius: 0px;
 	border-top-left-radius: 0px;
 }
+
+/* Rules */
+@media (max-width: 767px) {
+	.hidden-mobile {
+	  display: none;
+	}
+	.chat-main {
+		width: 115%;
+		margin-left: -11%;
+		grid-template-columns: 1fr;
+		font-size: 10px;
+	}
+	
+	.chat-messages .message .meta {
+		font-size: 10px;
+	}
+
+	.leave-btn {
+		font-size: 10px;
+		width: 15%;
+	}
+  }
