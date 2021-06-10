@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/passchat.css">
+    </head>
+    <body>
+        <div class="application-wrapper centered">
+            <header>
+                PASSCHAT <img src="assets/doge.png">
+            </header>
+            <main class="join-main">
+				<form action="chat.html">
+					<div class="form-join">
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Enter username..."
+							required
+						/>
+					</div>
+					<div class="form-join">
+						<label for="room">Room ID</label>
+						<input
+							type="text"
+							name="roomID"
+							id="roomID"
+							placeholder="public"
+							required
+						/>
+					</div>
+					<button type="submit">Join Chat</button>
+				</form>
+			</main>
+        </div>
+    </body>
+</html>
