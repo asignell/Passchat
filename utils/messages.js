@@ -1,5 +1,10 @@
-const moment= require('moment');
+const moment=require('moment'); //Enables the access of the current time
 
+//Formats messages to contain the user, content, and time
+//PARAMETERS : username = username
+//             text = content of message
+//
+//RETURNS : Message object
 function formatMessage (username, text) {
     return {
         username,
@@ -8,4 +13,5 @@ function formatMessage (username, text) {
     }
 }
 
+//EXPORT
 module.exports = formatMessage;
