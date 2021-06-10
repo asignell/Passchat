@@ -19,7 +19,7 @@ Next, enter the newly cloned directory.
 cd Passchat
 ```
 
-Now you ahve to install the dependancies through npm
+Now you have to install the dependancies through npm
 ```
 npm install
 ```
@@ -31,6 +31,33 @@ gcloud app deploy
 Accept any promts that pop up. This will take several minutes.
 
 Once Google Cloud finishes deploying, PassChat should be live and fully functional!
+
+## Runing locally
+If you want to run the app locally, you can take advantage of
+a package called nodemon. Nodemon will automatically update
+the server when it detects changes.
+
+First you will want to clone the repository
+```
+git clone https://github.com/Jack-Rutland/Passchat.git
+```
+
+Next, enter the newly cloned directory.
+```
+cd Passchat
+```
+
+Now you have to install the dependancies through npm
+```
+npm install
+```
+
+Then finally run the server through nodemon by running :
+```
+npm run dev
+```
+
+You can now access the website through `localhost:8080`.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
