@@ -6,13 +6,15 @@
     <body>
         <div class="application-wrapper centered">
             <header>
-                PASSCHAT <img src="assets/doge.png">
+                PASSCHAT
+				<img src="assets/doge.png" alt="Doge face" width="25px" height="25px" style="margin-left: 10px;">
             </header>
-            <main class="join-main">
+            <main style="margin-top: 10%;">
 				<form action="chat.html">
-					<div class="form-join">
+					<div class="join-form">
 						<label for="username">Username</label>
 						<input
+							class="join-input"
 							type="text"
 							name="username"
 							id="username"
@@ -20,9 +22,10 @@
 							required
 						/>
 					</div>
-					<div class="form-join">
+					<div class="join-form">
 						<label for="room">Room ID</label>
 						<input
+							class="join-input"
 							type="text"
 							name="roomID"
 							id="roomID"
@@ -30,7 +33,7 @@
 							required
 						/>
 					</div>
-					<button type="submit">Join Chat</button>
+					<button type="submit" class="btn join-btn">Join Chat</button>
 				</form>
 			</main>
         </div>

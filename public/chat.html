@@ -4,20 +4,30 @@
         <link rel="stylesheet" href="css/passchat.css">
     </head>
     <body>
-        <div class="application-wrapper centered     ">
+        <div class="application-wrapper centered">
             <header class="chat-header ">
-                <div> PASSCHAT<img src="assets/doge.png"> </div>
-                <button id="leave-btn"><a href='index.html'>Leave Chat</a></button>
+                <span>
+                    PASSCHAT
+                    <img src="assets/doge.png" alt="Doge face" width="25px" height="25px" style="margin-left: 10px;">
+                </span>
+                <button class="leave-btn btn">
+                    <a href='index.html' class="hidden-link">Leave Chat</a>
+                </button>
             </header>
-            
             <main class="chat-main">
                 <div class="chat-sidebar">
                   <h3>Room ID:</h3>
-                  <h2 id="room-name"></h2>
+                  <h2 id="room-name">
+                      <!-- This will show the Room ID on room join -->
+                  </h2>
                   <h3>Users</h3>
-                  <ul id="users"></ul>
+                  <ul id="users" class="user-list">
+                      <!-- This will populate with users on room join and user change -->
+                  </ul>
                 </div>
-                <div class="chat-messages"></div>
+                <div class="chat-messages">
+                    <!-- This will populate with chat messages as they come in -->
+                </div>
               </main>
             <footer>
                 <div class="message-form">
@@ -29,7 +39,7 @@
                         required
                         autocomplete="off"
                         />
-                        <button class="chat-btn"> Send</button>
+                        <button class="chat-btn btn">Send</button>
                     </form>
                 </div>
             </footer>
