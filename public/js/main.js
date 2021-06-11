@@ -5,13 +5,17 @@ const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
 const socket = io();
 
+//Get timezone offset in minutes
+var date = new Date();
+const timezoneOffset = date.getTimezoneOffset()/60;
+
 //Grab username and roomID from URL
 const {username, roomID} = Qs.parse(location.search, { 
     ignoreQueryPrefix: true
     });
 
 //Emits joinRoom to server with username and roomID
-socket.emit('joinRoom', { username, roomID});
+socket.emit('joinRoom', { username, roomID, timezoneOffset});
 
 //Listens for room information and displays it
 socket.on('roomUsers', ( { roomID, users } ) => {
@@ -43,7 +47,7 @@ chatForm.addEventListener('submit', (e) => {
 function outputMessage(message) {
     const div = document.createElement('div');
     div.classList.add('message');
-    div.innerHTML = `<p class='meta'>${message.username}<span>  ${message.time}</span></p>
+    div.innerHTML = `<p class='meta'>${message.username}<span>  ${(parseInt(message.time.split(":")[0]) - timezoneOffset) + ":" + message.time.split(":")[1] }</span></p>
     <p class='text'>
     ${message.text}
     </p>`;
