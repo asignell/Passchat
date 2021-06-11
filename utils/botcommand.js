@@ -1,3 +1,6 @@
+//IMPORTS
+const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./users');
+
 //BOT COMMANDS
 //HOW TO CONTRIBUTE :
 //Add an object to the commands array using the following template :
@@ -9,7 +12,7 @@
         description : <breif description of the command>.
         funct : function(user,msg,args) {
             args is passed as an array of strings
-            
+
             Return the string that you want to be displayed.
             You can use html tags like <b></b> and <br>.
         }
@@ -34,6 +37,19 @@ const commands =
                 message += "<b>" + command.name + "</b>" + ": <br>&emsp;Description: " + command.description + "<br>" 
             });
             return message;
+        }
+    },
+    {
+        name : 'users',
+        usage : '/users',
+        arguments : 1,
+        description : 'Lists all users in current room',
+        funct : function(user,msg,args) {
+            var message = "<b>Active Users</b> :<br>";
+            getRoomUsers(user.roomID).forEach(user => {
+                message += user.username + ", ";
+            });
+            return message.slice(0, -2);
         }
     }
 ];
