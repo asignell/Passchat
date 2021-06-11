@@ -7,7 +7,9 @@
         usage : '/<name of command> <arg1> <arg2>...',
         arguments : <number of arguments (including the command itself)>,
         description : <breif description of the command>.
-        funct : function(user,msg) {
+        funct : function(user,msg,args) {
+            args is passed as an array of strings
+            
             Return the string that you want to be displayed.
             You can use html tags like <b></b> and <br>.
         }
