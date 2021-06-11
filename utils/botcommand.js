@@ -26,7 +26,7 @@ const commands =
         usage : '/help',
         arguments : 1,
         description : 'Lists all commands',
-        funct : function(user,msg) {
+        funct : function(user,msg,args) {
             var message = "";
             commands.forEach(command => {
                 message += "<b>" + command.name + "</b>" + ": <br>&emsp;Description: " + command.description + "<br>" 
@@ -41,7 +41,7 @@ function botCommand(user, msg) {
     const index = commands.findIndex(command => "/" + command.name === msg.split(" ")[0]);
     if (index !== -1) {
         if(msg.split(" ").length === commands[index].arguments) {
-            return commands[index].funct(user,msg);
+            return commands[index].funct(user,msg,msg.split(" "));
         }
         else {
             return "ERROR : INVALID ARGUMENTS<br>USAGE: " + commands[index].usage;
