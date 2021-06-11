@@ -5,6 +5,7 @@ const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./utils/users');
+const botCommand = require('./utils/botcommand.js');
 const { format } = require('path');
 
 //CONSTANTS
@@ -48,6 +49,12 @@ io.on('connection', socket => {
     socket.on('chatMessage', (msg) => {
         const user = getCurrentUser(socket.id)
         io.to(user.roomID).emit('message',formatMessage(user.username,msg));
+        if(msg.charAt(0) === '/') {
+            msg = botCommand(user,msg);
+            io.to(user.roomID).emit('message',formatMessage(user.username,msg));
+        }
+
+        
     });
 
 
