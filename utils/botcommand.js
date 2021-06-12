@@ -34,7 +34,7 @@ const commands =
         funct : function(user,msg,args) {
             var message = "";
             commands.forEach(command => {
-                message += "<b>" + command.name + "</b>" + ": <br>&emsp;Description: " + command.description + "<br>" 
+                message += "<b>" + command.name + "</b>" + ": <br>&emsp;Description: " + command.description + "<br>"
             });
             return message;
         }
@@ -51,6 +51,21 @@ const commands =
             });
             return message.slice(0, -2);
         }
+    },
+    {
+      name : 'rng',
+      usage : '/rng min max',
+      arguments : 3,
+      description : 'Generates a random number between min nd max',
+      funct : function(user,msg,args) {
+        var out = "";
+        var min = arguments[2][1];
+        var max = arguments[2][2];
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        num = Math.floor(Math.random() * (max - min + 1) + min);
+        return num;
+      }
     }
 ];
 
