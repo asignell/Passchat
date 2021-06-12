@@ -59,8 +59,8 @@ const commands =
       description : 'Generates a random number between min nd max',
       funct : function(user,msg,args) {
         var out = "";
-        var min = arguments[2][1];
-        var max = arguments[2][2];
+        var min = args[1];
+        var max = args[2];
         min = Math.ceil(min);
         max = Math.floor(max);
         num = Math.floor(Math.random() * (max - min + 1) + min);
