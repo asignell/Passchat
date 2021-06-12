@@ -34,7 +34,7 @@ const commands =
         funct : function(user,msg,args) {
             var message = "";
             commands.forEach(command => {
-                message += "<b>" + command.name + "</b>" + ": <br>&emsp;Description: " + command.description + "<br>" 
+                message += "<b>" + command.name + "</b>" + ": <br>&emsp;Description: " + command.description + "<br>"
             });
             return message;
         }
@@ -51,6 +51,37 @@ const commands =
             });
             return message.slice(0, -2);
         }
+    },
+    {
+      //Generates a random number
+      name : 'rng',
+      usage : '/rng min max',
+      arguments : 2,
+      description : 'Generates a random number from 0 to max or between min and max',
+      funct : function(user,msg,args) {
+        if(args.length === 2){
+          min = 0;
+          max = Math.floor(args[1]);
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        else{
+          min = Math.ceil(args[1]);
+          max = Math.floor(args[2]);
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+      }
+    },
+    {
+      //always tells you yes
+      name : 'yesman',
+      usage : '/yesman Question',
+      arguments : 1,
+      description : 'Responds yes to all of your questions',
+      funct : function(user,msg,args) {
+        var answer = "";
+        answer += "yes";
+        return answer;
+      }
     }
 ];
 
@@ -58,7 +89,7 @@ const commands =
 function botCommand(user, msg) {
     const index = commands.findIndex(command => "/" + command.name === msg.split(" ")[0]);
     if (index !== -1) {
-        if(msg.split(" ").length === commands[index].arguments) {
+        if(msg.split(" ").length >= commands[index].arguments) {
             return commands[index].funct(user,msg,msg.split(" "));
         }
         else {
